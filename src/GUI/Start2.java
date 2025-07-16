@@ -51,24 +51,6 @@ public class Start2 extends JFrame {
 	 * BackgroundPanel yellow3;
 	 */
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Start2 frame = new Start2(Integer
-							.parseInt(JOptionPane.showInputDialog("Wie Viele Spieler moechten Spielen? (2-4 moeglich)")));
-					frame.setVisible(true);
-					frame.setResizable(false);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
 
@@ -125,12 +107,7 @@ public class Start2 extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				wuerfelZahl.setText(Spieler.wuerfel() + "");
 				Spieler p = Start2.playerList.get(Start2.activePlayer-1);
-				if (!Spieler.testeFigurDrausen(p) & Spieler.wuerfel != 6) {
-					JOptionPane.showMessageDialog(rootPane, "Du kannst nichts machen! \nZug Beendet");
-					Spieler.setActivePlayer();
-					Start2.txtpnZugVonSpieler.setText("Zug von Spieler " + Start2.activePlayer);
-					Spieler.wuerfel = 0;
-				}
+
 				switch (Spieler.wuerfel) {
 				case 1:
 					lblWuerfel.setIcon(new ImageIcon(Start2.class.getResource("/GUI/1wl.jpg")));
@@ -151,7 +128,17 @@ public class Start2 extends JFrame {
 					lblWuerfel.setIcon(new ImageIcon(Start2.class.getResource("/GUI/6wl.jpg")));
 					break;
 				}
-				JOptionPane.showMessageDialog(rootPane, "Die Würfel sind gefallen! \nDu hast eine " + Spieler.wuerfel + " gewürfelt!");
+				JOptionPane.showMessageDialog(rootPane, "Die Wuerfel sind gefallen! \nDu hast eine " + Spieler.wuerfel + " gewuerfelt!");
+				System.out.println("PrÃ¼fe ob spieler laufen kann");
+				//System.out.println(Spieler.testeFigurDrausen(p));
+				//System.out.println(Spieler.wuerfel);
+				//System.out.println(!Spieler.testeFigurDrausen(p) && Spieler.wuerfel != 6);
+				if (!Spieler.testeFigurDrausen(p) & Spieler.wuerfel != 6) {
+					JOptionPane.showMessageDialog(rootPane, "Du kannst nichts machen! \nZug Beendet");
+					Spieler.setActivePlayer();
+					Start2.txtpnZugVonSpieler.setText("Zug von Spieler " + Start2.activePlayer);
+					Spieler.wuerfel = 0;
+				}
 				//wuerfel = Integer.parseInt(wuerfelZahl.getText());
 
 

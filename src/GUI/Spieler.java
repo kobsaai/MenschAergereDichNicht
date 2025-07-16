@@ -293,20 +293,31 @@ public class Spieler {
 		}
 	}
 
+	/*Validate if Player can move any figure, when you don't have a figure outside of the starting area
+	 * the game will skip your move
+	 * TODO: Update so it also calculates f.e. your only figure is close to the house and can only move up to 4 fields but you roll a 5
+	 */
 	public static boolean testeFigurDrausen(Spieler p) {
 		boolean check = false;
 		int[][] startBereich = p.startFeld;
+		System.out.println(startBereich.length);
 		for (int j = 0; j < p.figureList.size(); j++) {
 			SpielFigur figur = p.figureList.get(j);
 
 			int x = figur.getX();
 			int y = figur.getY();
-			for (int i = 0; i < startBereich.length; i++) {
-				if (x == startBereich[i][0] && y == startBereich[i][1]) {
-				} else {
-					check = true;
-					break;
-				}
+			if (!check) {
+				for (int i = 0; i < startBereich.length; i++) {
+
+					if (x == startBereich[i][0] && y == startBereich[i][1]) {
+						break;
+					} else {
+						if(i==3) {
+							check=true;
+						}
+
+					}
+			}
 			}
 		}
 		return check;

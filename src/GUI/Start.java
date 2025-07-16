@@ -1,19 +1,12 @@
 package GUI;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Image;
-import java.awt.Toolkit;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JRadioButton;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -59,7 +52,7 @@ public class Start extends JFrame {
 	public Spieler pYellow = new SpielerYellow();
 	public Spieler pGreen = new SpielerGreen();
 	public Spieler pBlack = new SpielerBlack();
-	//testkommentar für versionsüberprüfung//
+	
 	/**
 	 * Launch the application.
 	 */
